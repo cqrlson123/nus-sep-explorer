@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NUS SEP Explorer — School of Computing</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark">SEP</span>
+      <div class="brand-text">
+        <h1>NUS SEP Explorer</h1>
+        <p>Student Exchange Programme &middot; School of Computing partner universities</p>
+      </div>
+    </div>
+    <div class="target-term">Applying for <strong>AY2027/28, Semester 1</strong></div>
+  </div>
+</header>
+
+<main class="layout">
+  <aside class="panel filters">
+    <div class="filter-block">
+      <label for="search">Search university</label>
+      <input type="text" id="search" placeholder="Name, e.g. &quot;Toronto&quot;" autocomplete="off" />
+    </div>
+
+    <div class="filter-block">
+      <label for="courseSearch">Search by course code / title</label>
+      <input type="text" id="courseSearch" placeholder="e.g. CS3244, &quot;Machine Learning&quot;" autocomplete="off" />
+      <p class="hint">Matches NUS or partner-university course code/title.</p>
+    </div>
+
+    <div class="filter-block">
+      <label for="regionFilter">Region</label>
+      <select id="regionFilter"><option value="">All regions</option></select>
+    </div>
+
+    <div class="filter-block">
+      <label for="countryFilter">Country</label>
+      <select id="countryFilter"><option value="">All countries</option></select>
+    </div>
+
+    <div class="filter-block">
+      <label for="approvalFilter">Pre-approval status</label>
+      <select id="approvalFilter">
+        <option value="">Any</option>
+        <option value="hasApproved">Has ≥1 pre-approved mapping</option>
+        <option value="noneApproved">No pre-approved mappings</option>
+      </select>
+    </div>
+
+    <div class="filter-block">
+      <label for="sortBy">Sort by</label>
+      <select id="sortBy">
+        <option value="name">Name (A–Z)</option>
+        <option value="mappings">Most course mappings</option>
+        <option value="approved">Most pre-approved mappings</option>
+      </select>
+    </div>
+
+    <div class="filter-block toggle-row">
+      <label class="switch-label">
+        <input type="checkbox" id="shortlistOnly" />
+        Shortlist only
+      </label>
+    </div>
+
+    <button id="resetFilters" class="btn-ghost">Reset filters</button>
+
+    <div class="meta-box" id="metaBox"></div>
+  </aside>
+
+  <section class="panel list-panel">
+    <div class="list-header">
+      <span id="resultCount">–</span>
+      <div class="tabs">
+        <button class="tab active" data-tab="all">All universities</button>
+        <button class="tab" data-tab="shortlist">My shortlist (<span id="shortlistCount">0</span>)</button>
+      </div>
+    </div>
+    <ul id="universityList" class="university-list"></ul>
+  </section>
+
+  <section class="panel detail-panel" id="detailPanel">
+    <div class="detail-empty" id="detailEmpty">
+      <p>Select a university to see its pre-approved course mappings, official links and academic calendar lookup.</p>
+    </div>
+    <div class="detail-content" id="detailContent" hidden></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>
+    Course-mapping data parsed from your downloaded SoC SEP pre-approved list. Always verify current mappings and
+    availability against the latest <a href="https://www.comp.nus.edu.sg/programmes/ug/global/sep/" target="_blank" rel="noopener">NUS SoC SEP page</a>
+    and NUS Registrar's Office SEP portal before applying — pre-approved course lists and partner availability change every cycle.
+  </p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
