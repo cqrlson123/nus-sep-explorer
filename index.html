@@ -34,6 +34,21 @@
     </div>
 
     <div class="filter-block">
+      <label for="targetCourseInput">My courses (add courses you need mapped)</label>
+      <div class="tag-input-row">
+        <input type="text" id="targetCourseInput" placeholder="e.g. CS2100" autocomplete="off" />
+        <button id="addTargetCourse" class="btn-add" type="button">Add</button>
+      </div>
+      <div id="targetCourseChips" class="chip-row"></div>
+      <p class="hint">Each course is checked against every university's pre-approved-list mappings (by code or title). Saved across visits.</p>
+    </div>
+
+    <div class="filter-block" id="minMatchBlock" hidden>
+      <label for="minMatchFilter">Min. of my courses matched</label>
+      <select id="minMatchFilter"><option value="0">Any</option></select>
+    </div>
+
+    <div class="filter-block">
       <label for="regionFilter">Region</label>
       <select id="regionFilter"><option value="">All regions</option></select>
     </div>
@@ -58,6 +73,7 @@
         <option value="name">Name (A–Z)</option>
         <option value="mappings">Most course mappings</option>
         <option value="approved">Most pre-approved mappings</option>
+        <option value="targetMatch">Most of my courses matched</option>
       </select>
     </div>
 
